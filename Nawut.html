@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Nawutt ❤️</title>
+    <style>
+      /* Import dua font: Lobster (judul utama) & Dancing Script (subteks) */
+      @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
+
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2rem;
+        color: white;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        color: white;
+        background: linear-gradient(45deg, #ff4b2b, #ff416c);
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+      button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+      .message {
+        font-size: 3rem;
+        font-family: "Lobster", cursive;
+        background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff9a9e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        margin-top: 30px;
+        display: none;
+        animation: glow 1.5s infinite alternate;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        white-space: nowrap;
+      }
+      .sub-message {
+        font-size: 1.3rem;
+        font-family: "Dancing Script", cursive;
+        color: rgba(255, 255, 255, 0.9);
+        margin-top: 10px;
+        display: none;
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        letter-spacing: 1px;
+      }
+      @keyframes glow {
+        from {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ff4b2b;
+        }
+        to {
+          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ff416c;
+        }
+      }
+      .heart {
+        position: absolute;
+        color: red;
+        font-size: 20px;
+        animation: fall linear forwards;
+      }
+      @keyframes fall {
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hai Sayang ❤️</h1>
+    <button onclick="showLove()">Klik Aku!</button>
+    <div class="message" id="loveMessage"></div>
+    <div class="sub-message" id="subMessage">From Abul 🫰 Saranghaeyo ❤️</div>
+
+    <!-- Musik dari URL (tidak perlu download) -->
+    <audio id="loveSong" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
+
+    <script>
+      function showLove() {
+        document.getElementById("loveSong").play();
+
+        let msgElement = document.getElementById("loveMessage");
+        let subMsgElement = document.getElementById("subMessage");
+        let text = "❤️ I LOVE YOU NAWUTT ❤️";
+        msgElement.innerHTML = "";
+        msgElement.style.display = "block";
+        subMsgElement.style.display = "none";
+
+        let i = 0;
+        function typeWriter() {
+          if (i < text.length) {
+            msgElement.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 120);
+          } else {
+            setTimeout(() => (subMsgElement.style.display = "block"), 500);
+          }
+        }
+        typeWriter();
+        startHearts();
+      }
+
+      function startHearts() {
+        function createHeart() {
+          let heart = document.createElement("div");
+          heart.className = "heart";
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.fontSize = 20 + Math.random() * 30 + "px";
+          heart.innerText = "❤️";
+          heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+          document.body.appendChild(heart);
+
+          setTimeout(() => heart.remove(), 5000);
+          setTimeout(createHeart, 150);
+        }
+        createHeart();
+      }
+    </script>
+  </body>
+</html>
