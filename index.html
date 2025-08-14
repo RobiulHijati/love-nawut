@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Nawutt ❤️</title>
     <style>
-      /* Import dua font: Lobster (judul utama) & Dancing Script (subteks) */
       @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
 
       body {
@@ -15,18 +14,30 @@
         font-family: "Poppins", sans-serif;
         background: linear-gradient(135deg, #ff9a9e, #fad0c4);
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: center; /* Tengah horizontal */
+        align-items: center; /* Tengah vertikal */
         overflow: hidden;
         text-align: center;
+        position: relative;
       }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        position: relative;
+        z-index: 2; /* di atas hati */
+      }
+
       h1 {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
         color: white;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-        margin-bottom: 20px;
+        margin: 0;
       }
+
       button {
         padding: 15px 30px;
         font-size: 1.2rem;
@@ -42,28 +53,31 @@
         transform: scale(1.1);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
+
       .message {
-        font-size: 3rem;
+        font-size: clamp(1.5rem, 6vw, 3rem);
         font-family: "Lobster", cursive;
         background: linear-gradient(45deg, #ff4b2b, #ff416c, #ff9a9e);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: bold;
-        margin-top: 30px;
         display: none;
         animation: glow 1.5s infinite alternate;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        white-space: nowrap;
+        word-wrap: break-word;
+        white-space: normal;
+        max-width: 90vw;
       }
+
       .sub-message {
-        font-size: 1.3rem;
+        font-size: clamp(1rem, 4vw, 1.3rem);
         font-family: "Dancing Script", cursive;
         color: rgba(255, 255, 255, 0.9);
-        margin-top: 10px;
         display: none;
         text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
         letter-spacing: 1px;
       }
+
       @keyframes glow {
         from {
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ff4b2b;
@@ -72,13 +86,20 @@
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ff416c;
         }
       }
+
       .heart {
         position: absolute;
         color: red;
-        font-size: 20px;
         animation: fall linear forwards;
+        z-index: 1; /* di belakang teks */
+        top: 0; /* mulai dari atas */
       }
+
       @keyframes fall {
+        from {
+          transform: translateY(-20px);
+          opacity: 1;
+        }
         to {
           transform: translateY(100vh);
           opacity: 0;
@@ -87,17 +108,20 @@
     </style>
   </head>
   <body>
-    <h1>Hai Sayang ❤️</h1>
-    <button onclick="showLove()">Klik Aku!</button>
-    <div class="message" id="loveMessage"></div>
-    <div class="sub-message" id="subMessage">From Abul 🫰 Saranghaeyo ❤️</div>
+    <div class="container">
+      <h1>Hai Sayang ❤️</h1>
+      <button onclick="showLove()">Klik Aku!</button>
+      <div class="message" id="loveMessage"></div>
+      <div class="sub-message" id="subMessage">From Abul 🫰 Saranghaeyo ❤️</div>
+    </div>
 
-    <!-- Musik dari URL (tidak perlu download) -->
     <audio id="loveSong" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
 
     <script>
       function showLove() {
-        document.getElementById("loveSong").play();
+        const song = document.getElementById("loveSong");
+        song.currentTime = 0;
+        song.play().catch((err) => console.log("Autoplay diblokir, klik lagi:", err));
 
         let msgElement = document.getElementById("loveMessage");
         let subMsgElement = document.getElementById("subMessage");
