@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Nawutt ❤️</title>
 
-    <!-- Open Graph Meta Tags untuk preview WA -->
-    <meta property="og:title" content="For Lisna Wanita 10/10 ❤️" />
-    <meta property="og:description" content="From Abul 🫰🏻❤️" />
-    <meta property="og:image" content="https://example.com/thumbnail.jpg" />
-    <meta property="og:url" content="https://username.github.io/love-page/" />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#ff416c" />
+    <!-- SweetAlert2 untuk pop-up cantik -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
@@ -73,8 +68,6 @@
         display: none;
         animation: glow 1.5s infinite alternate;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        word-wrap: break-word;
-        white-space: normal;
         max-width: 90vw;
       }
 
@@ -85,6 +78,8 @@
         display: none;
         text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
         letter-spacing: 1px;
+        max-width: 90vw;
+        line-height: 1.5em;
       }
 
       @keyframes glow {
@@ -121,9 +116,10 @@
       <h1>Hai Sayang ❤️</h1>
       <button onclick="showLove()">Klik Aku!</button>
       <div class="message" id="loveMessage"></div>
-      <div class="sub-message" id="subMessage">From Abul 🫰 Saranghaeyo ❤️</div>
+      <div class="sub-message" id="subMessage"></div>
     </div>
 
+    <!-- Musik -->
     <audio id="loveSong" src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"></audio>
 
     <script>
@@ -146,7 +142,29 @@
             i++;
             setTimeout(typeWriter, 120);
           } else {
-            setTimeout(() => (subMsgElement.style.display = "block"), 500);
+            setTimeout(() => {
+              const sweetMessage =
+                "From Abul 🫰 Saranghaeyo ❤️<br>Semangat terus kuliahnya ya sayang. Aku tahu kamu lagi berjuang capek-capeknya, tapi aku percaya kamu kuat dan hebat. Jangan lupa istirahat yang cukup, makan teratur, dan jaga kesehatan. Aku selalu mendoakan kamu biar semua yang kamu cita-citakan tercapai. I’m so proud of you ❤️";
+              subMsgElement.innerHTML = sweetMessage;
+              subMsgElement.style.display = "block";
+
+              // Pop-up cantik
+              Swal.fire({
+                title: "💖 Aku Bangga Sama Kamu!",
+                html: `<p style="font-size: 16px; line-height: 1.4em; text-align: center;">
+           Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
+           Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
+           nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
+         </p>`,
+                imageUrl: "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
+                imageWidth: 150,
+                imageHeight: 150,
+                width: "90%" /* biar nggak melebar di HP */,
+                background: "#ffe6eb",
+                confirmButtonText: "💌 Makasih Sayang",
+                confirmButtonColor: "#ff4b2b",
+              });
+            }, 500);
           }
         }
         typeWriter();
