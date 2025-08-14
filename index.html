@@ -113,6 +113,19 @@
           opacity: 0;
         }
       }
+
+      /* FIX posisi pop-up agar tidak bergerak di HP */
+      .swal2-container {
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .swal2-popup {
+        margin: 0 !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+      }
     </style>
   </head>
   <body>
@@ -152,21 +165,24 @@
               subMsgElement.innerHTML = sweetMessage;
               subMsgElement.style.display = "block";
 
-              // Pop-up cantik
               Swal.fire({
                 title: "💖 Aku Bangga Sama Kamu!",
                 html: `<div style="font-size: 16px; line-height: 1.4em; text-align: center; word-wrap: break-word; max-width: 100%;">
-    Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
-    Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
-    nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
-  </div>`,
+                  Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
+                  Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
+                  nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
+                </div>`,
                 imageUrl: "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
                 imageWidth: 150,
                 imageHeight: 150,
-                width: 400 /* Tetap stabil di desktop */,
+                width: 400,
                 background: "#ffe6eb",
                 confirmButtonText: "💌 Makasih Sayang",
                 confirmButtonColor: "#ff4b2b",
+                position: "center",
+                grow: false,
+                showClass: { popup: "" }, // hilangkan animasi masuk
+                hideClass: { popup: "" }, // hilangkan animasi keluar
               });
             }, 500);
           }
