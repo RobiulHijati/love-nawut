@@ -6,16 +6,16 @@
     <title>For Nawutt ❤️</title>
 
     <!-- Meta tag untuk preview WhatsApp -->
-    <meta property="og:title" content="Untuk Lisna Perempuan 10/10 ❤️" />
-    <meta property="og:description" content="Dari Abul 🫰🏻🫶🏻." />
+    <meta property="og:title" content="For Lisna Perempuan 10/10 ❤️" />
+    <meta property="og:description" content="From Abul 🫰🏻🫶🏻." />
     <meta property="og:image" content="images/nawutt.jpg" />
     <meta property="og:url" content="https://namadomainkamu.com" />
     <meta property="og:type" content="website" />
 
     <!-- Untuk kompatibilitas Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Untuk Lisna Perempuan 10/10 ❤️" />
-    <meta name="twitter:description" content="Dari Abul 🫰🏻🫶🏻." />
+    <meta name="twitter:title" content="For Lisna Perempuan 10/10 ❤️" />
+    <meta name="twitter:description" content="From Abul 🫰🏻🫶🏻." />
     <meta name="twitter:image" content="images/nawutt.jpg" />
 
     <!-- SweetAlert2 untuk pop-up cantik -->
@@ -23,7 +23,6 @@
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
-
       body {
         margin: 0;
         padding: 0;
@@ -37,7 +36,6 @@
         text-align: center;
         position: relative;
       }
-
       .container {
         display: flex;
         flex-direction: column;
@@ -47,23 +45,20 @@
         position: relative;
         z-index: 2;
       }
-
       h1 {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
         color: white;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
         margin: 0;
       }
-
       .profile-img {
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
         object-fit: cover;
-        border-radius: 50%; /* bulat, ganti jadi 0% kalau mau kotak */
+        border-radius: 50%;
         border: 3px solid white;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       }
-
       button {
         padding: 15px 30px;
         font-size: 1.2rem;
@@ -75,12 +70,10 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
       }
-
       button:hover {
         transform: scale(1.1);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
-
       .message {
         font-size: clamp(1.5rem, 6vw, 3rem);
         font-family: "Lobster", cursive;
@@ -93,7 +86,6 @@
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         max-width: 90vw;
       }
-
       .sub-message {
         font-size: clamp(1rem, 4vw, 1.3rem);
         font-family: "Dancing Script", cursive;
@@ -104,16 +96,14 @@
         max-width: 90vw;
         line-height: 1.5em;
       }
-
       @keyframes glow {
         from {
-          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ff4b2b;
+          text-shadow: 2px 2px 5px rgba(0,0,0,0.3), 0 0 10px #ff4b2b;
         }
         to {
-          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ff416c;
+          text-shadow: 2px 2px 5px rgba(0,0,0,0.3), 0 0 20px #ff416c;
         }
       }
-
       .heart {
         position: absolute;
         color: red;
@@ -121,18 +111,10 @@
         z-index: 1;
         top: 0;
       }
-
       @keyframes fall {
-        from {
-          transform: translateY(-20px);
-          opacity: 1;
-        }
-        to {
-          transform: translateY(100vh);
-          opacity: 0;
-        }
+        from { transform: translateY(-20px); opacity: 1; }
+        to { transform: translateY(100vh); opacity: 0; }
       }
-
       /* FIX posisi pop-up agar tidak bergerak di HP */
       .swal2-container {
         align-items: center !important;
@@ -150,7 +132,7 @@
   <body>
     <div class="container">
       <h1>Hai Sayang ❤️</h1>
-      <img src="images/nawutt.jpg" alt="Foto Nawutt" class="profile-img" />
+      <img src="images/nawutt.jpg" alt="Nawutt" class="profile-img" />
       <button onclick="showLove()">Klik Aku!</button>
       <div class="message" id="loveMessage"></div>
       <div class="sub-message" id="subMessage"></div>
