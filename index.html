@@ -5,12 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>For Nawutt ❤️</title>
 
+    <!-- Meta tag untuk preview WhatsApp -->
+    <meta property="og:title" content="For Nawutt ❤️" />
+    <meta property="og:description" content="Pesan spesial dari Abul untuk kamu, Nawutt ❤️ Klik dan rasakan kejutan manisnya!" />
+    <meta property="og:image" content="https://i.imgur.com/yourimage.jpg" />
+    <meta property="og:url" content="https://namadomainkamu.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Untuk kompatibilitas Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="For Nawutt ❤️" />
+    <meta name="twitter:description" content="Pesan spesial dari Abul untuk kamu, Nawutt ❤️ Klik dan rasakan kejutan manisnya!" />
+    <meta name="twitter:image" content="https://i.imgur.com/yourimage.jpg" />
+
     <!-- SweetAlert2 untuk pop-up cantik -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Dancing+Script&display=swap");
-
       body {
         margin: 0;
         padding: 0;
@@ -24,7 +36,6 @@
         text-align: center;
         position: relative;
       }
-
       .container {
         display: flex;
         flex-direction: column;
@@ -34,14 +45,12 @@
         position: relative;
         z-index: 2;
       }
-
       h1 {
         font-size: clamp(1.5rem, 5vw, 2.5rem);
         color: white;
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
         margin: 0;
       }
-
       button {
         padding: 15px 30px;
         font-size: 1.2rem;
@@ -57,7 +66,6 @@
         transform: scale(1.1);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
-
       .message {
         font-size: clamp(1.5rem, 6vw, 3rem);
         font-family: "Lobster", cursive;
@@ -70,7 +78,6 @@
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         max-width: 90vw;
       }
-
       .sub-message {
         font-size: clamp(1rem, 4vw, 1.3rem);
         font-family: "Dancing Script", cursive;
@@ -81,7 +88,6 @@
         max-width: 90vw;
         line-height: 1.5em;
       }
-
       @keyframes glow {
         from {
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ff4b2b;
@@ -90,7 +96,6 @@
           text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ff416c;
         }
       }
-
       .heart {
         position: absolute;
         color: red;
@@ -98,7 +103,6 @@
         z-index: 1;
         top: 0;
       }
-
       @keyframes fall {
         from {
           transform: translateY(-20px);
@@ -126,7 +130,9 @@
       function showLove() {
         const song = document.getElementById("loveSong");
         song.currentTime = 0;
-        song.play().catch((err) => console.log("Autoplay diblokir, klik lagi:", err));
+        song.play().catch((err) =>
+          console.log("Autoplay diblokir, klik lagi:", err)
+        );
 
         let msgElement = document.getElementById("loveMessage");
         let subMsgElement = document.getElementById("subMessage");
@@ -152,14 +158,15 @@
               Swal.fire({
                 title: "💖 Aku Bangga Sama Kamu!",
                 html: `<p style="font-size: 16px; line-height: 1.4em; text-align: center;">
-           Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
-           Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
-           nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
-         </p>`,
-                imageUrl: "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
+                  Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
+                  Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
+                  nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
+                </p>`,
+                imageUrl:
+                  "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
                 imageWidth: 150,
                 imageHeight: 150,
-                width: "90%" /* biar nggak melebar di HP */,
+                width: "90%",
                 background: "#ffe6eb",
                 confirmButtonText: "💌 Makasih Sayang",
                 confirmButtonColor: "#ff4b2b",
