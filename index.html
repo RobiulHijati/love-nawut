@@ -130,9 +130,7 @@
       function showLove() {
         const song = document.getElementById("loveSong");
         song.currentTime = 0;
-        song.play().catch((err) =>
-          console.log("Autoplay diblokir, klik lagi:", err)
-        );
+        song.play().catch((err) => console.log("Autoplay diblokir, klik lagi:", err));
 
         let msgElement = document.getElementById("loveMessage");
         let subMsgElement = document.getElementById("subMessage");
@@ -157,16 +155,15 @@
               // Pop-up cantik
               Swal.fire({
                 title: "💖 Aku Bangga Sama Kamu!",
-                html: `<p style="font-size: 16px; line-height: 1.4em; text-align: center;">
-                  Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
-                  Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
-                  nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
-                </p>`,
-                imageUrl:
-                  "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
+                html: `<div style="font-size: 16px; line-height: 1.4em; text-align: center; word-wrap: break-word; max-width: 100%;">
+    Terus semangat kuliahnya, jaga kesehatan, dan ingat aku selalu di sini dukung kamu. 
+    Dengan segala kekuranganku, aku akan selalu coba berusaha buat bahagiakan kamu, 
+    nemenin kamu, dan ngasih yang terbaik untuk kamu ❤️
+  </div>`,
+                imageUrl: "https://www.gambaranimasi.org/data/media/50/animasi-bergerak-bunga-kembang-0020.gif",
                 imageWidth: 150,
                 imageHeight: 150,
-                width: "90%",
+                width: 400 /* Tetap stabil di desktop */,
                 background: "#ffe6eb",
                 confirmButtonText: "💌 Makasih Sayang",
                 confirmButtonColor: "#ff4b2b",
@@ -196,4 +193,3 @@
     </script>
   </body>
 </html>
-
